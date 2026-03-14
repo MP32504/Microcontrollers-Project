@@ -3,8 +3,6 @@
 
 const char alphabet[26] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
 
-const String fruitsnacks[27] = {"🍈", "🍉", "🍊", "🍏", "🍐", "🍓", "🥥", "🫒", "🌽", "🍋‍🟩", "🍌", "🍒", "🍋", "🍇", "🥑", "🫑", "🍑", "🍍", "🥭", "🍄", "🍅", "🥕", "🫐", "🥝", "🧅", "🥔", "🫚"};
-
 const String ozymandias[27] = {"met", "traveller", "from", "antique", "land", "who", "two", "vast", "legs", "stone", "desert", "near", "them", "half", "sunk", "shattered", "visage", "lies", "wrinkled", "lip", "sneer", "cold", "sculptor", "passions", "pedestal", "name", "ozymandias"};
 
 char encoder[26][26];
@@ -213,37 +211,6 @@ String DecryptOzymandias(String stringToDecrypt)
   return decryptedString;
 }
 
-String EncryptFruitSnack(String stringToEncrypt)
-{
-  int stringToEncryptLength = stringToEncrypt.length(), keyIndex = 0;
-  char stringToEncryptSplit[stringToEncryptLength + 1];
-  stringToEncrypt.toCharArray(stringToEncryptSplit, stringToEncryptLength + 1);
-
-  String encryptedString = "";
-
-  for (int i = 0; i < stringToEncrypt.length(); i++)
-  {
-    int letterStor = 26;
-    char character = stringToEncryptSplit[i];
-    for (int letters = 0; letters < 26; letters++)
-    {
-      if (character == alphabet[letters])
-      {
-        letterStor = letters;
-      }
-    }
-      
-    encryptedString += fruitsnacks[letterStor];
-  }
-
-  return encryptedString;
-}
-
-String DecryptFruitSnack(String s)
-{
-  return " ";
-}
-
 String EncryptString(String stringToEncrypt, String key, int insertRandom = -1, int insertRandom2 = -1, int insertRandom3 = -1)
 {
   Serial.println("Original text"); Serial.println(stringToEncrypt);
@@ -277,9 +244,6 @@ String EncryptString(String stringToEncrypt, String key, int insertRandom = -1, 
     Serial.println(); Serial.println("Added in random letters"); Serial.println(encryptedString);
   }
 
-  //encryptedString = EncryptFruitSnack(encryptedString);
-  //Serial.println(); Serial.println("Converted into fruit snacks"); Serial.println(encryptedString);
-
   return encryptedString;
 }
 
@@ -288,9 +252,6 @@ String DecryptString(String stringToDecrypt, String key, int insertRandom = -1, 
   String decryptedString = stringToDecrypt;
 
   Serial.println("Encrypted text"); Serial.println(decryptedString);
-
-  //decryptedString = DecryptFruitSnack(decryptedString);
-  //Serial.println("Converted from fruit snacks to normal text"); Serial.println(decryptedString);
 
   // remove random letters
   if (insertRandom3 != -1) 
