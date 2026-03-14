@@ -6,7 +6,7 @@ The code itself has a few different layers:
 - **Vigenère cipher**: A more advanced version of the Caesar cipher.
 - **Random characters**: Random characters are also added in at certain spots.
 
-The majority of the code is implemented through simple arrays, where the string is broken up into individual characters which are much more easily manipulated. The array is then typically pieced back together into a string after the desired change is applied. This process is repeated over multiple functions, which are run in sequence in order to encode or decode a phrase.
+The code can be uploaded to two Arduinos, with one encoding a message and sending it to the other to decode it.
 
 # Design Choices
 Of course, this code is not nearly unbreakable so don't use it for anything too important. However, while I am no expert at cryptography, I attempted to make the code as difficult to break as possible while still maintaining it's simplicity and having it be very easy to understand.
