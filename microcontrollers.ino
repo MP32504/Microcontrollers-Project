@@ -1,4 +1,4 @@
-#include <StringLib.h>;
+#include <StringLib.h>
 #include <Wire.h> 
 
 const char alphabet[26] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
@@ -133,14 +133,11 @@ String DecryptVigenere(String stringToDecrypt, String key)
     else { decryptedString += character; }
   }
 
-  return decryp=tedString;
+  return decryptedString;
 }
 
 String EncryptOzymandius(String stringToEncrypt)
 {
-  // create a string builder so that each subsequent word can be added on
-  StringBuilder<64> strBuilder;
-  
   // convert original string to a character array to access all of the characters in it
   int stringToEncryptLength = stringToEncrypt.length();
   char stringToEncryptSplit[stringToEncryptLength + 1];
@@ -196,7 +193,7 @@ String DecryptOzymandias(String stringToDecrypt)
     {
       // get the first two letters of the specific word in the ozymandias list
       String ozymandiasWord = ozymandias[i], ozymandiasFirstTwo;
-      int ozymandiasWordLength = stringToDecrypt.length();
+      int ozymandiasWordLength = ozymandiasWord.length();
       char ozymandiasSplit[ozymandiasWordLength + 1];
       ozymandiasWord.toCharArray(ozymandiasSplit, ozymandiasWordLength + 1);
       ozymandiasFirstTwo += ozymandiasSplit[0];
@@ -329,15 +326,15 @@ void setup()
 {
   Serial.begin(9600);
   Wire.begin(9);
-  wire.onRecieve(recieveEvent)
+  Wire.onRecieve(recieveEvent);
 
   String key = "fruitsnacks";
   int position = 2; int position2 = 3; int position3 = 2;
   Serial.println();
 
-  encode("fruitsnacks", 1, 2, 3);
+  encode("fruitsnacks", position, position2, position3);
 
-  //decode("fruitsnacks", 1, 2, 3);
+  //decode("fruitsnacks", position, position2, position3);
 
 }
 
@@ -349,13 +346,13 @@ void encode(String key, int position, int position2, int position3)
   Serial.println(encryptedString);
   encryptedString = AddRandomCharactersToString(encryptedString, position3);
   Serial.println(encryptedString);
-  String encryptedString = EncryptString("hi", key, position, position2, position3);
+  encryptedString = EncryptString("hi", key, position, position2, position3);
   Serial.println("-------------------------------------------------------------------------");
   Serial.println(encryptedString);
   Serial.println("-------------------------------------------------------------------------");
 }
 
-void decode()
+void decode(String key, int position, int position2, int position3)
 {
   String decryptedString = RemoveRandomCharactersFromString(encryptedString, position3);
   Serial.println(decryptedString);
@@ -368,7 +365,7 @@ void decode()
 void recieveEvent(int bytes)
 {
   String encryptedString = Wire.read();
-  String decryptedString = DecryptString(, key, position, position2, position3);
+  String decryptedString = DecryptString(encryptedString, key, position, position2, position3);
   Serial.println("-------------------------------------------------------------------------");
   Serial.println(decryptedString);
   Serial.println("-------------------------------------------------------------------------");
