@@ -333,26 +333,36 @@ void setup()
 
   String key = "fruitsnacks";
   int position = 2; int position2 = 3; int position3 = 2;
-  
   Serial.println();
 
-  // String encryptedString = AddRandomCharactersToString("add new words to this", position);
-  // Serial.println(encryptedString);
-  // encryptedString = AddRandomCharactersToString(encryptedString, position2);
-  // Serial.println(encryptedString);
-  // encryptedString = AddRandomCharactersToString(encryptedString, position3);
-  // Serial.println(encryptedString);
-  // String encryptedString = EncryptString("hi", key, position, position2, position3);
-  // Serial.println("-------------------------------------------------------------------------");
-  // Serial.println(encryptedString);
-  // Serial.println("-------------------------------------------------------------------------");
+  encode("fruitsnacks", 1, 2, 3);
 
-  // String decryptedString = RemoveRandomCharactersFromString(encryptedString, position3);
-  // Serial.println(decryptedString);
-  // decryptedString = RemoveRandomCharactersFromString(decryptedString, position2);
-  // Serial.println(decryptedString);
-  // decryptedString = RemoveRandomCharactersFromString(decryptedString, position);
-  // Serial.println(decryptedString);
+  //decode("fruitsnacks", 1, 2, 3);
+
+}
+
+void encode(String key, int position, int position2, int position3)
+{
+  String encryptedString = AddRandomCharactersToString("add new words to this", position);
+  Serial.println(encryptedString);
+  encryptedString = AddRandomCharactersToString(encryptedString, position2);
+  Serial.println(encryptedString);
+  encryptedString = AddRandomCharactersToString(encryptedString, position3);
+  Serial.println(encryptedString);
+  String encryptedString = EncryptString("hi", key, position, position2, position3);
+  Serial.println("-------------------------------------------------------------------------");
+  Serial.println(encryptedString);
+  Serial.println("-------------------------------------------------------------------------");
+}
+
+void decode()
+{
+  String decryptedString = RemoveRandomCharactersFromString(encryptedString, position3);
+  Serial.println(decryptedString);
+  decryptedString = RemoveRandomCharactersFromString(decryptedString, position2);
+  Serial.println(decryptedString);
+  decryptedString = RemoveRandomCharactersFromString(decryptedString, position);
+  Serial.println(decryptedString);
 }
 
 void recieveEvent(int bytes)
