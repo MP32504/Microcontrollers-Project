@@ -1,1 +1,4 @@
-# Microcontrollers-Project
+# Overview
+I created this simple encoder/decoder for something that I call the Ozymandius code.
+The code itself has a few different layers. A substitution cipher where letters are replaced with corresponding words from the poem "Ozymandius." The order is just the order that the words appear in the poem (skipping words where the first two letters of the word matches the first two letters of a previously used word). A Vigenère cipher is also applied in order to add a little more difficulty to solving the code (as I felt the words by themselves would be very easy to decode). Finally, random characters are added at certain spots in order to try and discourage frequency analysis, which is a common method used to crack codes.
+Of course, this code is not nearly unbreakable so don't use it for anything too important.
