@@ -24,3 +24,9 @@ Finally, adding in characters at specific intervals. I added this in to attempt 
 - **Data structures**: Primarily arrays and String objects for simplicity
 
 For the substitution cipher, I seperated the first two letters in order to identify what word was first, and then skipped characters until the word was over. I would then look at the next two letters and repeat continuously until the entire phrase was decoded. The encoding process was simple, with just identifying the letter and adding in the word from the corresponding location in an array of all the words used.
+
+## Wiring
+
+The wiring for the project is fairly simple, just having a connection between the two Arduino so they can communicate is sufficient.
+
+![alt image](exampleSetup.png)
